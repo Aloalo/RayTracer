@@ -2,8 +2,8 @@
 #include "VolumetricObject.h"
 
 
-VolumetricObject::VolumetricObject(const Vector &color, float transparency, float reflectivity)
-	: IntersectableObject(color, transparency, reflectivity)
+VolumetricObject::VolumetricObject(const Vector &color, float transparency, float indexOfRefraction, float reflectivity)
+	: IntersectableObject(color, transparency, indexOfRefraction, reflectivity)
 {
 }
 

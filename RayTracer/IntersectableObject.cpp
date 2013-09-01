@@ -2,8 +2,8 @@
 #include "IntersectableObject.h"
 
 
-IntersectableObject::IntersectableObject(const Vector &color, float transparency, float reflectivity)
-	: color(color), transparency(transparency), reflectivity(reflectivity)
+IntersectableObject::IntersectableObject(const Vector &color, float transparency, float indexOfRefraction, float reflectivity)
+	: color(color), transparency(transparency), ior(indexOfRefraction), reflectivity(reflectivity)
 {
 }
 

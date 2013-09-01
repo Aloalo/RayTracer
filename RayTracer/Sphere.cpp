@@ -2,8 +2,8 @@
 #include "Sphere.h"
 #include <cmath>
 
-Sphere::Sphere(const Vector &color, float transparency, float reflectivity, const Vector &center, float radius)
-	: VolumetricObject(color, transparency, reflectivity), center(center), radius(radius), radius2(radius * radius)
+Sphere::Sphere(const Vector &color, float transparency, float indexOfRefraction, float reflectivity, const Vector &center, float radius)
+	: VolumetricObject(color, transparency, indexOfRefraction, reflectivity), center(center), radius(radius), radius2(radius * radius)
 {
 }
 

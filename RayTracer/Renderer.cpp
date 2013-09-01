@@ -31,7 +31,7 @@ void Renderer::render(const Tracer *tracer, OutputImage* output, int AALevel) co
 					float yy = (1.0f - 2.0f * ((y + aay) * invHeight)) * angle;
 					Vector raydir(xx, yy, -1.0f);
 					raydir.normalize();
-					outColor += tracer->trace(Ray(Vector(0.0f), raydir), 0);
+					outColor += tracer->trace(Ray(Vector(0.0f), raydir), 1.0f, 0);
 				}
 			output->image[y * output->width / AALevel + x / AALevel] = outColor / (AALevel * AALevel);
 		}

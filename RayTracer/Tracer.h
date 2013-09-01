@@ -11,7 +11,7 @@ public:
 	Tracer(int maxDepth);
 	~Tracer(void);
 
-	Vector trace(const Ray& r, int depth) const;
+	Vector trace(const Ray& r, float currentIoR, int depth) const;
 
 	void setMaxDepth(int depth);
 	void addObject(IntersectableObject *obj);
