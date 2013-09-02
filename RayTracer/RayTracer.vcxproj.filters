@@ -51,9 +51,6 @@
     <ClInclude Include="Sphere.h">
       <Filter>Header Files\Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="Tracer.h">
-      <Filter>Header Files\TracingEngine</Filter>
-    </ClInclude>
     <ClInclude Include="LightSource.h">
       <Filter>Header Files\TracingEngine</Filter>
     </ClInclude>
@@ -69,7 +66,7 @@
     <ClInclude Include="OutputImage.h">
       <Filter>Header Files\TracingEngine</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="Scene.h">
       <Filter>Header Files\TracingEngine</Filter>
     </ClInclude>
   </ItemGroup>
@@ -92,9 +89,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tracer.cpp">
-      <Filter>Source Files\TracingEngine</Filter>
-    </ClCompile>
     <ClCompile Include="LightSource.cpp">
       <Filter>Source Files\TracingEngine</Filter>
     </ClCompile>
@@ -104,7 +98,7 @@
     <ClCompile Include="OutputImage.cpp">
       <Filter>Source Files\TracingEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="Scene.cpp">
       <Filter>Source Files\TracingEngine</Filter>
     </ClCompile>
   </ItemGroup>

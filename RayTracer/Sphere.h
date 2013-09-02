@@ -6,7 +6,7 @@ class Sphere :
 	public VolumetricObject
 {
 public:
-	Sphere(const Vector &color, float transparency, float indexOfRefraction, float reflectivity,
+	Sphere(const Vector &color, bool transparency, float indexOfRefraction, bool reflectivity,
 		const Vector &center, float radius);
 	~Sphere(void);
 

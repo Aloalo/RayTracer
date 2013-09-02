@@ -2,7 +2,7 @@
 #include "VolumetricObject.h"
 
 
-VolumetricObject::VolumetricObject(const Vector &color, float transparency, float indexOfRefraction, float reflectivity)
+VolumetricObject::VolumetricObject(const Vector &color, bool transparency, float indexOfRefraction, bool reflectivity)
 	: IntersectableObject(color, transparency, indexOfRefraction, reflectivity)
 {
 }
