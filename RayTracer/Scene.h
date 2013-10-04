@@ -2,27 +2,20 @@
 
 #include "IntersectableObject.h"
 #include "LightSource.h"
-#include "OutputImage.h"
-#include <vector>
 
 class Scene
 {
 public:
-	Scene(void);
-	Scene(int maxDepth);
-	~Scene(void);
+	Scene(const Vector &backgroundColor, float spaceIoR);
+	virtual ~Scene(void);
 
-	void setMaxDepth(int depth);
-	void addObject(IntersectableObject *obj);
-	void addLightSource(LightSource *light);
-	void render(OutputImage* output, int AALevel = 1) const;
+	virtual void addObject(IntersectableObject *obj) = 0;
+	virtual void addLightSource(LightSource *light) = 0;
 
-private:
-	Vector trace(const Ray& r, float currentIoR, int depth) const;
+	virtual IntersectableObject* hitObject(const Ray &r, float *distance) const = 0;
+	virtual Vector shade(const Ray &r, const Material *mat, const Vector &nhit, const Vector &phit) const = 0;
 
-	std::vector<IntersectableObject*> objectList;
-	std::vector<LightSource*> lightSourceList;
-	int maxDepth;
-	float spaceIoR;
+	const float spaceIoR;
+	const Vector backgroundColor;
 };
 

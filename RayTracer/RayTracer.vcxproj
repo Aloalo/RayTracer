@@ -80,29 +80,43 @@
     <ClInclude Include="Essential.h" />
     <ClInclude Include="IntersectableObject.h" />
     <ClInclude Include="LightSource.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="OutputImage.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SlowScene.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="VolumetricObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IntersectableObject.cpp" />
     <ClCompile Include="LightSource.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="OutputImage.cpp" />
+    <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SlowScene.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="VolumetricObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RayTracer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

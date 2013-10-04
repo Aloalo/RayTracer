@@ -5,6 +5,7 @@ namespace efl
 	const float ZERO = 1e-4;
 	const float INF = 1e10;
 	const float PI = 3.14159265359;
+	const float bias = 1e-4;
 
 	template<class T>
 	T abs(T x)

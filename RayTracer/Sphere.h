@@ -6,8 +6,7 @@ class Sphere :
 	public VolumetricObject
 {
 public:
-	Sphere(const Vector &color, bool transparency, float indexOfRefraction, bool reflectivity,
-		const Vector &center, float radius);
+	Sphere(const Material *mat, const Vector &center, float radius);
 	~Sphere(void);
 
 	bool intersect(const Ray &r, float *distance) const;

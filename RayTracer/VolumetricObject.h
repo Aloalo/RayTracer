@@ -7,7 +7,7 @@ class VolumetricObject :
 	public IntersectableObject
 {
 public:
-	VolumetricObject(const Vector &color, bool transparency, float indexOfRefraction, bool reflectivity);
+	VolumetricObject(const Material *mat);
 	virtual ~VolumetricObject(void);
 };
 
