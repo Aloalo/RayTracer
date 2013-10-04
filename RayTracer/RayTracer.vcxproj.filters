@@ -79,13 +79,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SlowScene.h">
       <Filter>Header Files\TracingEngine</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SlowScene.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,14 +125,14 @@
     <ClCompile Include="Plane.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SlowScene.cpp">
-      <Filter>Source Files\TracingEngine</Filter>
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\TracingEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

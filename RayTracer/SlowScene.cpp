@@ -56,24 +56,19 @@ IntersectableObject* SlowScene::hitObject(const Ray &r, float *distance) const
 Vector SlowScene::shade(const Ray &r, const Material *mat, const Vector &nhit, const Vector &phit) const
 {
 	Vector outColor(0.0f);
-	int objectListSize = objectList.size();
 	float tnear = (phit - r.origin).length();
 
+	int objectListSize = objectList.size();
 	int lightSources = lightSourceList.size();
 	for(int i = 0; i < lightSources; ++i)
 	{
 		float transmission(1.0f);
 		Vector lightDirection = (lightSourceList[i]->position - phit).normalized();
 
-		for(int j = 0; j < objectListSize; ++j)
-		{
-			float tmp;
-			if (objectList[j]->intersect(Ray(phit + nhit * efl::bias, lightDirection), &tmp) && tmp < tnear)
-			{
-				transmission = 0.0f;
-				break;
-			}
-		}
+		float tmp;
+		if(hitObject(Ray(phit + nhit * efl::bias, lightDirection), &tmp) != NULL && tmp < tnear)
+			transmission = 0.0f;
+		
 		if(transmission > efl::ZERO)//shade
 		{
 			Vector lightIntensity = lightSourceList[i]->intensityAtPoint(phit);
