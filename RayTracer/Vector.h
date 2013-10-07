@@ -21,10 +21,10 @@ public:
 	Vector operator*(const Vector &v) const;
 	Vector operator/(float t) const;
 
-	Vector operator+=(const Vector &v);
-	Vector operator-=(const Vector &v);
-	Vector operator*=(float t);
-	Vector operator/=(float t);
+	Vector& operator+=(const Vector &v);
+	Vector& operator-=(const Vector &v);
+	Vector& operator*=(float t);
+	Vector& operator/=(float t);
 	
 	bool operator<(const Vector &v) const;
 	bool operator>(const Vector &v) const;

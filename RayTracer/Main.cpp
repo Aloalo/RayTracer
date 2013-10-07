@@ -12,7 +12,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int t = clock();
 
 	Scene *scene = new SlowScene(Vector(0.8, 0.8, 0.8), 1.0f);
-	//const Vector &color, float transparency, Float ior, float reflectivity, const Vector &center, float radius
+
 	scene->addObject(new Plane(new Material(Vector(1.0f), 1.0f, 0.1f, 0.1f), Vector(0.0f, 1.0f, 0.0f), Vector(0.0f, -5.0f, 0.0f)));
 	scene->addObject(new Plane(new Material(Vector(1.0, 1.0, 1.0), 1.0f, 0.0f), Vector(0.0f, 0.0f, 1.0f), Vector(0.0f, 0.0f, -40.0f)));
 	scene->addObject(new Plane(new Material(Vector(1.0, 1.0, 1.0), 1.0f, 0.0f), Vector(0.0f, 0.0f, -1.0f), Vector(0.0f, 0.0f, 5.0f)));

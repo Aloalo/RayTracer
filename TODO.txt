@@ -1,3 +1,2 @@
 -more intersectable objects
 -octree and grid optimisations
--general micro optimisations

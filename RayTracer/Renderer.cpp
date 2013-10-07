@@ -31,7 +31,7 @@ void Renderer::render(const Scene *tmpScenePtr, OutputImage* output, int AALevel
 	for(int y = 0; y < AALevel * output->height; y += AALevel) 
 		for(int x = 0; x < AALevel * output->width; x += AALevel)
 		{
-			Vector outColor(0.0f);
+			Vector outColor;
 			for(float aay = from; !(aay > to); aay += 1.0f)
 				for(float aax = from; !(aax > to); aax += 1.0f)
 				{
@@ -75,18 +75,16 @@ Vector Renderer::trace(const Ray &r, float currentIoR, int depth) const
 
 	if((obj->mat->transparency > efl::ZERO || obj->mat->reflectivity > efl::ZERO) && depth < maxDepth)
 	{
-		Vector reflectionColor(0.0f), refractionColor(0.0f);
-		Vector refrdir(0.0f);
+		Vector reflectionColor, refractionColor;
+		Vector refrdir;
 
 		Vector refldir = r.direction - nhit * 2 * dotProd;
-		refldir.normalize();
 		reflectionColor = trace(Ray(phit + nhit * efl::bias, refldir), ior, depth + 1) * obj->mat->color * obj->mat->reflectivity;
 
 		if(obj->mat->transparency > efl::ZERO)
 		{
 			Vector z = currentIoR / ior * (r.direction - dotProd * nhit);
 			refrdir = z - sqrt(1 - z.length2()) * nhit;
-			refrdir.normalize();
 			refractionColor = trace(Ray(phit - nhit * efl::bias, refrdir), ior, depth + 1);
 			if(inside)
 			{
@@ -96,8 +94,8 @@ Vector Renderer::trace(const Ray &r, float currentIoR, int depth) const
 			}
 		}
 
-		float fresneleffect = efl::mix<float>(efl::pow(1.0f + dotProd, 3), 1.0f, 0.1f);
-		outColor += (reflectionColor * fresneleffect + refractionColor * (1 - fresneleffect));
+		float fresneleffect = efl::mix(efl::pow(1.0f + dotProd, 3), 1.0f, 0.1f);
+		outColor += (reflectionColor * fresneleffect + (1 - fresneleffect) * refractionColor);
 	}
 
 	return outColor;

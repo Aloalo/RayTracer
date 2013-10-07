@@ -16,7 +16,7 @@ namespace efl
 	template<class T>
 	int sgn(T x)
 	{
-		return abs(x) < EPS ? 0 : (x < 0 ? -1 : 1);
+		return abs(x) < 0.0f ? 0 : (x < 0 ? -1 : 1);
 	}
 
 	template<class T>

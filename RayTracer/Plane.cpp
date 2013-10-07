@@ -3,7 +3,7 @@
 #include "Essential.h"
 
 Plane::Plane(const Material *mat, const Vector &n, const Vector &p)
-	: Surface(mat), n(n), p(p)
+	: Surface(mat), n(n.normalized()), p(p)
 {
 
 }
@@ -41,5 +41,5 @@ bool Plane::intersect(const Ray &r, float *distance) const
 
 void Plane::getNormalAtPoint(const Vector &point, Vector &normal) const
 {
-	normal = Vector(n);
+	normal = n;
 }

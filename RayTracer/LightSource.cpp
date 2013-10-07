@@ -17,7 +17,7 @@ LightSource::~LightSource(void)
 {
 }
 
-Vector LightSource::intensityAtPoint(const Vector &p)
+Vector LightSource::intensityAtPoint(const Vector &p) const
 {
 	return intensity / (attenuationFactor * position.distance2(p));
 }
