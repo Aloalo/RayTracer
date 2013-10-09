@@ -81,7 +81,7 @@ Vector SlowScene::shade(const Ray &r, const Material *mat, const Vector &nhit, c
 				float dot = dotProduct(r.direction , R.normalized());
 				if (dot > 0)
 				{
-					float spec = efl::pow(dot, 20) * mat->spec;
+					float spec = efl::fastPow(dot, 32) * mat->spec;
 					outColor += spec * lightIntensity * mat->color;
 				}
 			}

@@ -87,6 +87,9 @@
     <ClInclude Include="SlowScene.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="IntersectableObjects.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IntersectableObject.cpp">

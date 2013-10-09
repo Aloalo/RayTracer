@@ -74,4 +74,17 @@ namespace efl
 		for(ret = a; --b; ret *= a);
 		return ret;
 	}
+
+	template<class T>
+	T fastPow(T b, int e) 
+	{
+		T ret = 1;
+		for(; e; e >>= 1)
+		{
+			if(e & 1)
+				ret *= b;
+			b *= b;
+		}
+		return ret;
+	}
 }

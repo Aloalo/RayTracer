@@ -1,2 +1,3 @@
 -more intersectable objects
 -octree and grid optimisations
+-set camera

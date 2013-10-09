@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Renderer.h"
 #include "Essential.h"
+#include <boost/thread/thread.hpp>
 
 Renderer::Renderer(int maxDepth)
 	: maxDepth(maxDepth)
@@ -18,17 +19,34 @@ void Renderer::setMaxDepth(int depth)
 }
 
 
-void Renderer::render(const Scene *tmpScenePtr, OutputImage* output, int AALevel)
+void Renderer::render(const Scene *tmpScenePtr, OutputImage* output, int AALevel, int numberOfThreads)
 {
 	scene = tmpScenePtr;
 
+	std::vector<boost::thread> threads;
+	int t = output->height / numberOfThreads;
+	for(int i = 0; i < numberOfThreads; ++i)
+	{
+		if(i != numberOfThreads - 1)
+			threads.push_back(boost::thread(boost::bind(&Renderer::threadRender, this, output, AALevel, i * t, (i + 1) * t)));
+		else
+			threads.push_back(boost::thread(boost::bind(&Renderer::threadRender, this, output, AALevel, i * t, output->height)));
+	}
+	for(int i = 0; i < numberOfThreads; ++i)
+		threads[i].join();
+
+	scene = NULL;
+}
+
+void Renderer::threadRender(OutputImage* output, int AALevel, int firstRow, int lastRow)
+{
 	float angle = tan(efl::PI * 0.5 * output->fieldOfView / 180.0f);
 	float invWidth = 1.0f / (float) output->width / AALevel;
 	float invHeight = 1.0f / (float) output->height / AALevel;
 
 	float from = -(float)AALevel / 2.0f + 1.0f;
 	float to = (float)AALevel / 2.0f;
-	for(int y = 0; y < AALevel * output->height; y += AALevel) 
+	for(int y = firstRow * AALevel; y < AALevel * lastRow; y += AALevel) 
 		for(int x = 0; x < AALevel * output->width; x += AALevel)
 		{
 			Vector outColor;
@@ -43,8 +61,6 @@ void Renderer::render(const Scene *tmpScenePtr, OutputImage* output, int AALevel
 				}
 				output->image[y * output->width / AALevel + x / AALevel] = outColor / (AALevel * AALevel);
 		}
-
-	scene = NULL;
 }
 
 Vector Renderer::trace(const Ray &r, float currentIoR, int depth) const

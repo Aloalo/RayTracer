@@ -39,9 +39,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;D:\ProgramFiles\Boost\include\boost-1_55\boost;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;D:\ProgramFiles\Boost\include\boost-1_55</IncludePath>
+    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;D:\ProgramFiles\Boost\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -80,6 +83,7 @@
   <ItemGroup>
     <ClInclude Include="Essential.h" />
     <ClInclude Include="IntersectableObject.h" />
+    <ClInclude Include="IntersectableObjects.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="OutputImage.h" />
