@@ -12,7 +12,7 @@ Sphere::~Sphere(void)
 {
 }
 
-bool Sphere::intersect(const Ray &r, float *distance) const
+bool Sphere::intersect(const Ray &r, float &distance) const
 {
 	Vector l = center - r.origin;
 
@@ -25,7 +25,7 @@ bool Sphere::intersect(const Ray &r, float *distance) const
 		return false;
 
 	float thc = sqrt(radius2 - d2);
-	*distance = (tca - thc) > 0.0f ? tca - thc : tca + thc;
+	distance = (tca - thc) > 0.0f ? tca - thc : tca + thc;
 
 	return true;
 }

@@ -9,7 +9,7 @@ public:
 	LightSource(const Vector &position, const Vector &intensity, float attenFactor);
 	~LightSource(void);
 
-	Vector intensityAtPoint(const Vector &p) const;
+	const Vector& intensityAtPoint(const Vector &p) const;
 
 	float attenuationFactor;
 	Vector position;

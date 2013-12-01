@@ -20,21 +20,21 @@ Plane::~Plane(void)
 {
 }
 
-bool Plane::intersect(const Ray &r, float *distance) const
+bool Plane::intersect(const Ray &r, float &distance) const
 {
 	float t0 = dotProduct(n, p - r.origin);
 	float t1 = dotProduct(r.direction, n);
 
 	if(efl::abs(t0) <= efl::ZERO && efl::abs(t1) <= efl::ZERO)
 	{
-		*distance = 0.0f;
+		distance = 0.0f;
 		return true;
 	}
 	else if(efl::abs(t1) <= efl::ZERO || (t0 / t1) < 0)
 		return false;
 	else
 	{
-		*distance = t0 / t1;
+		distance = t0 / t1;
 		return true;
 	}
 }

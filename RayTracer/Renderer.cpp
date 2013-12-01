@@ -111,7 +111,7 @@ Vector Renderer::trace(const Ray &r, float currentIoR, int depth) const
 		}
 
 		float fresneleffect = efl::mix(efl::pow(1.0f + dotProd, 3), 1.0f, 0.1f);
-		outColor += (reflectionColor * fresneleffect + (1 - fresneleffect) * refractionColor);
+		outColor += (fresneleffect * reflectionColor + (1 - fresneleffect) * refractionColor);
 	}
 
 	return outColor;

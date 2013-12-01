@@ -30,7 +30,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	OutputImage *image = new OutputImage(1920, 1080, 60.0f);
 	Renderer renderer(5);
 	renderer.render(scene, image, 2, 8);
-	image->saveToPPM("C:/Users/Jure/Desktop/untitled.ppm");
+	image->saveToPPM("untitled.ppm");
 
 	delete scene;
 	delete image;
